@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmony Yoga Studio</title>
+<meta name="description" content="Harmony Yoga Studio – хатха, виньяса, инь-йога и медитация.">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5.0.0/index.css?display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@5.0.0/index.css?display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#14141c;--elev:#1c1c26;--warm:#D4A574;--pink:#C89B9B;--err:#E57373;--ok:#81C784;--txt:#F5F2EE;--txt2:#A8A5A0;--txt3:#6B6863;--brd:rgba(255,255,255,0.08);--r:20px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--txt);background:#0a0a0f;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.logo{font-family:'Cormorant Garamond','Times New Roman',serif;font-weight:300;letter-spacing:-0.02em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.skip-link{position:absolute;top:-40px;left:0;background:var(--warm);color:#05050a;padding:8px 16px;z-index:10000;text-decoration:none;font-weight:500;border-radius:0 0 4px 0}
+.skip-link:focus{top:0}
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:1000;padding:1.2rem 0;border-bottom:1px solid var(--brd);transition:all .3s}
+nav.scrolled{padding:.8rem 0;background:rgba(10,10,15,.95)}
+.nv{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.8rem;color:var(--txt);text-decoration:none;flex-shrink:0;transition:color .3s}
+.logo:hover{color:var(--warm)}
+.nl{list-style:none;display:flex;gap:2rem}
+.nl a{color:var(--txt2);text-decoration:none;font-size:.95rem;transition:color .3s;position:relative;padding:.5rem 0}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--warm);transition:width .3s}
+.nl a:hover,.nl a.on{color:var(--txt)}
+.nl a:hover::after,.nl a.on::after{width:100%}
+.mb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}
+.mb span{width:25px;height:2px;background:var(--txt);transition:all .3s}
+.mb.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.mb.active span:nth-child(2){opacity:0}
+.mb.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding-top:80px}
+.hb{position:absolute;inset:0;background:url('https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1a2626cf4-c7be-4775-ba02-9c8cccbfa4c8.png') center 20%/cover;opacity:.3;filter:brightness(.6)}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0a0a0f,rgba(10,10,15,.6) 50%,#0a0a0f)}
+.hc{max-width:800px;padding:0 2rem;position:relative;z-index:1;text-align:center}
+.hc h1{font-size:clamp(3rem,8vw,6rem);line-height:1.1;margin-bottom:2rem;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+.hc h1 span{background:linear-gradient(135deg,var(--warm),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hc p{font-size:1.3rem;color:var(--txt2);margin-bottom:3rem;max-width:700px;margin:0 auto;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.btn{display:inline-block;padding:1.2rem 3.5rem;background:var(--warm);color:#05050a;text-decoration:none;border-radius:50px;font-size:1rem;font-weight:500;border:none;cursor:pointer;font-family:inherit;transition:all .3s}
+.btn:hover{background:var(--txt);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,165,116,.3)}
+.btn:disabled{opacity:.7;cursor:not-allowed}
+section{padding:8rem 0}
+.st{font-size:clamp(2.5rem,5vw,4rem);text-align:center;margin-bottom:1rem}
+.ss{text-align:center;color:var(--txt2);font-size:1.1rem;margin-bottom:4rem;max-width:600px;margin:0 auto}
+.as{background:linear-gradient(135deg,#05050a,var(--card));border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);position:relative}
+.as::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(168,155,184,.05) 0%,transparent 50%);pointer-events:none}
+.gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem}
+.cd{background:var(--card);border-radius:var(--r);overflow:hidden;border:1px solid var(--brd);transition:all .4s;cursor:pointer}
+.cd:hover{transform:translateY(-8px);border-color:rgba(212,165,116,.3);box-shadow:0 15px 40px rgba(0,0,0,.4)}
+.cd img{width:100%;height:320px;object-fit:cover;object-position:top;filter:brightness(.9);transition:filter .3s}
+.cd:hover img{filter:brightness(1)}
+.cc{padding:2rem;text-align:center}
+.cd h3{font-size:1.6rem;margin-bottom:.5rem}
+.cd p{color:var(--txt2);line-height:1.7}
+.sh{padding:1.5rem;background:var(--elev);border-bottom:1px solid var(--brd)}
+.st2{font-size:.9rem;color:var(--warm)}
+.sb{padding:2rem}
+.si{display:flex;justify-content:space-between;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--brd);font-size:.9rem;color:var(--txt3)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin:4rem 0}
+.ag img{width:100%;border-radius:var(--r);filter:brightness(.9)}
+.ag h2{font-size:2.5rem;margin-bottom:1.5rem}
+.ag p{color:var(--txt2);margin-bottom:1.5rem;font-size:1.1rem}
+.ps{background:linear-gradient(135deg,#05050a,var(--card));border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)}
+.pc{text-align:center}
+.ph{padding:2rem;background:var(--elev)}
+.pp{font-size:2.5rem;font-family:'Cormorant Garamond',serif;color:var(--warm);margin-top:.5rem}
+.pf{padding:2rem;list-style:none;color:var(--txt2)}
+.pf li{padding:.7rem 0;border-bottom:1px solid var(--brd)}
+.pf li:last-child{border-bottom:none}
+.pc .btn{width:calc(100% - 4rem);max-width:280px;margin:0 auto 2rem;display:block;text-align:center}
+.bc{display:flex;flex-direction:column}
+.bco{padding:1.5rem;flex:1}
+.bco h3{font-size:1.4rem;margin-bottom:.5rem}
+.bco p{color:var(--txt2)}
+.cs{background:linear-gradient(135deg,#05050a,var(--card));border-top:1px solid var(--brd);position:relative}
+.cs::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:radial-gradient(circle at bottom right,rgba(200,155,155,.05) 0%,transparent 50%);pointer-events:none}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.cd2 h3{font-size:1.5rem;margin:1.5rem 0 .5rem}
+.cd2 h3:first-child{margin-top:0}
+.cd2 p,.cd2 a{color:var(--txt2);text-decoration:none;display:block;margin-bottom:.3rem;font-size:1.05rem;transition:color .3s}
+.cd2 a:hover{color:var(--warm)}
+.cf{background:var(--card);padding:3rem;border-radius:var(--r);border:1px solid var(--brd);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.ft{font-size:2rem;margin-bottom:2rem;text-align:center}
+.fg{margin-bottom:1.5rem}
+.fg label{display:block;margin-bottom:.5rem}
+.fg input,.fg textarea{width:100%;padding:1rem;background:var(--elev);border:1px solid var(--brd);border-radius:10px;font-family:inherit;font-size:1rem;color:var(--txt);transition:border-color .3s}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--warm)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--txt3)}
+.fg input.error,.fg textarea.error{border-color:var(--err)}
+.em{color:var(--err);font-size:.85rem;margin-top:.4rem;display:none}
+.em.v{display:block}
+.fs{background:rgba(129,199,132,.15);color:var(--ok);padding:1rem;border-radius:10px;margin-bottom:1rem;text-align:center;display:none}
+.fs.v{display:block}
+footer{background:#05050a;padding:3rem 2rem;text-align:center;border-top:1px solid var(--brd)}
+footer p{color:var(--txt3)}
+.stt{position:fixed;bottom:2rem;right:2rem;width:50px;height:50px;background:var(--warm);color:#05050a;border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;opacity:0;transition:opacity .3s,transform .3s;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.stt.v{opacity:1;pointer-events:auto}
+.stt:hover{transform:translateY(-4px)}
+.fi{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.fi.v{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.fi,.btn,.stt{transition:none!important}}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#05050a}
+::-webkit-scrollbar-thumb{background:var(--elev);border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:var(--warm)}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;overflow-y:auto;padding:2rem;backdrop-filter:blur(10px)}
+.modal.open{display:block}
+.mc{max-width:800px;margin:2rem auto;background:var(--card);border-radius:var(--r);padding:3rem;position:relative;border:1px solid var(--brd)}
+.mx{position:absolute;top:1.5rem;right:1.5rem;background:var(--elev);border:none;color:var(--txt);font-size:1.5rem;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .3s}
+.mx:hover{background:var(--warm);color:#05050a}
+.mc h2{font-size:2.5rem;margin-bottom:1.5rem;line-height:1.2}
+.mb2{color:var(--txt2);font-size:1.1rem;line-height:1.8}
+.mb2 p{margin-bottom:1.5rem}
+.mb2 h3{color:var(--txt);font-size:1.5rem;margin:2rem 0 1rem}
+.mb2 ul{margin:1rem 0 1.5rem 1.5rem;color:var(--txt2)}
+.mb2 li{margin-bottom:.5rem}
+.mb2 strong{color:var(--warm)}
+@media(max-width:768px){
+.nl{display:none;position:absolute;top:100%;left:0;right:0;background:#05050a;flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--brd)}
+.nl.a{display:flex}
+.mb{display:flex}
+.ag,.cg{grid-template-columns:1fr;gap:2rem}
+.hc{padding:0 1.5rem}
+.hc h1{font-size:clamp(2.5rem,10vw,4rem)}
+section{padding:5rem 0}
+.wrap{padding:0 1.5rem}
+.cf{padding:2rem}
+.pc .btn{max-width:100%;width:100%}
+.cd img{height:260px}
+.mc{padding:2rem 1.5rem;margin:1rem auto}
+.mc h2{font-size:1.8rem}
+}
+@media(min-width:769px){.mb{display:none}}
+@media(min-width:1200px){
+.gr{grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.cd img{height:280px}
+.wrap{padding:0 3rem}
+.st{font-size:clamp(3rem,4vw,4.5rem)}
+.ag{gap:5rem}
+.hc{max-width:700px}
+}
+@media(min-width:1400px){.wrap{max-width:1400px}.nl{gap:2.5rem}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Перейти к содержимому</a>
+<nav id="navbar"><div class="nv"><a href="#home" class="logo">Harmony Yoga</a><button class="mb" id="mb" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button><ul class="nl" id="nl"><li><a href="#home" class="on">Главная</a></li><li><a href="#about">О студии</a></li><li><a href="#schedule">Расписание</a></li><li><a href="#pricing">Цены</a></li><li><a href="#contact">Контакты</a></li><li><a href="#blog">Блог</a></li></ul></div></nav>
+<main id="main">
+<section class="hero" id="home"><div class="hb"></div><div class="hc"><div class="fi"><h1>Найди <span>гармонию</span> внутри себя</h1><p>Откройте для себя мир йоги в нашей студии. Профессиональные инструкторы, уютная атмосфера и индивидуальный подход к каждому ученику.</p><a href="#contact" class="btn">Записаться на занятие</a></div></div></section>
+<section class="as" id="about"><div class="wrap"><h2 class="st fi">Почему выбирают нас</h2><p class="ss fi">Мы создаём пространство для вашего физического и духовного развития</p><div class="gr"><article class="cd fi" data-advantage="1"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1f36585f3-38cf-4771-a677-c0f300e3a391.png" alt="Женщина в позе воина" loading="lazy"><div class="cc"><h3>Опытные инструкторы</h3><p>Международные сертификаты и многолетний опыт</p></div></article><article class="cd fi" data-advantage="2"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/15bd867f8-1c04-4b2f-aded-26b28bfb147d.png" alt="Мужчина в динамичной позе" loading="lazy"><div class="cc"><h3>Малые группы</h3><p>До 10 человек для индивидуального внимания</p></div></article><article class="cd fi" data-advantage="3"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/127a27298-188b-4c47-ac46-5a53cec4e8f3.png" alt="Женщина в расслабленной позе" loading="lazy"><div class="cc"><h3>Уютная атмосфера</h3><p>Светлые залы с натуральными материалами</p></div></article><article class="cd fi" data-advantage="4"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/160b07fc7-d972-4662-b49a-2cbc99292352.png" alt="Мужчина в медитации" loading="lazy"><div class="cc"><h3>Все уровни</h3><p>Программы для начинающих и продвинутых</p></div></article></div><div class="ag fi" style="margin-top:6rem"><div><h2>Наша философия</h2><p>Harmony Yoga — это сообщество людей, стремящихся к осознанности и здоровью. Йога доступна каждому.</p><p>С 2020 года мы собрали команду сертифицированных преподавателей с международным опытом.</p></div><div><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1a45d0b4d-bea2-4e90-a342-f4e5a1f17de4.png" alt="Группа людей в позе лотоса на вершине обрыва" loading="lazy"></div></div><h2 class="st fi" style="margin-top:6rem">Наши инструкторы</h2><div class="gr fi"><article class="cd" data-instructor="anna"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1e38e95b6-cef0-4eef-8c28-bebaa44f7304.png" alt="Анна Соколова" loading="lazy"><div class="cc"><h3>Анна Соколова</h3><p>Хатха-йога, RYT 500</p></div></article><article class="cd" data-instructor="mikhail"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/17844bd7f-c8d5-461c-bfa5-86c5a87fab2e.png" alt="Михаил Руднев" loading="lazy"><div class="cc"><h3>Михаил Руднев</h3><p>Виньяса-флоу, RYT 200</p></div></article><article class="cd" data-instructor="elena"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/11676b9ea-23ec-4752-a989-09e884860293.png" alt="Елена Корнеева" loading="lazy"><div class="cc"><h3>Елена Корнеева</h3><p>Инь-йога, Yoga Alliance</p></div></article><article class="cd" data-instructor="dmitry"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1c0bf9e26-da4b-437e-b1cd-d43fff95cd57.png" alt="Дмитрий Белов" loading="lazy"><div class="cc"><h3>Дмитрий Белов</h3><p>Медитация, mindfulness</p></div></article></div></div></section>
+<section id="schedule" class="wrap"><h2 class="st fi">Расписание занятий</h2><p class="ss fi">Выберите удобное время для вашей практики</p><div class="gr"><article class="cd fi"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1a77a46ce-72a2-49a6-bdce-b81d6102abdf.png" alt="Руки в мудре" loading="lazy"><div class="sh"><h3>Хатха-йога</h3><div class="st2">Пн, Ср, Пт • 10:00 - 11:30</div></div><div class="sb"><p>Классическая практика для укрепления тела</p><div class="si"><span>Начинающий</span><span>Анна</span></div></div></article><article class="cd fi"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1269e6c06-0560-42e7-8ba8-c56006bdb02c.png" alt="Медитация и мозг" loading="lazy"><div class="sh"><h3>Виньяса-флоу</h3><div class="st2">Вт, Чт • 18:00 - 19:30</div></div><div class="sb"><p>Динамичная практика с плавными переходами</p><div class="si"><span>Средний</span><span>Михаил</span></div></div></article><article class="cd fi"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/165a8c432-8531-4893-9ad7-04febe634e06.png" alt="Спальня с ковриком" loading="lazy"><div class="sh"><h3>Инь-йога</h3><div class="st2">Сб • 11:00 - 12:30</div></div><div class="sb"><p>Глубокая расслабляющая практика</p><div class="si"><span>Все уровни</span><span>Елена</span></div></div></article><article class="cd fi"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/183e29d16-d0d1-4e28-8802-929b3e650e8c.png" alt="Дыхательная практика" loading="lazy"><div class="sh"><h3>Медитация</h3><div class="st2">Ежедневно • 7:00 - 8:00</div></div><div class="sb"><p>Утренняя практика для ясности ума</p><div class="si"><span>Все уровни</span><span>Дмитрий</span></div></div></article></div></section>
+<section class="ps" id="pricing"><div class="wrap"><h2 class="st fi">Цены и абонементы</h2><p class="ss fi">Выберите подходящий формат</p><div class="gr"><article class="cd pc fi"><div class="ph"><h3>Разовое занятие</h3><div class="pp">1 500 ₽</div></div><ul class="pf"><li>Любое направление</li><li>Все уровни</li><li>Коврик в подарок</li></ul><a href="#" class="btn" data-price-id="price_1">Оформить</a></article><article class="cd pc fi"><div class="ph"><h3>Абонемент на месяц</h3><div class="pp">4 500 ₽</div></div><ul class="pf"><li>8 занятий</li><li>Заморозка 7 дней</li><li>Скидка на ретриты</li></ul><a href="#" class="btn" data-price-id="price_2">Оформить</a></article><article class="cd pc fi"><div class="ph"><h3>Безлимитный месяц</h3><div class="pp">7 900 ₽</div></div><ul class="pf"><li>Неограниченные занятия</li><li>Все направления</li><li>Мастер-классы</li></ul><a href="#" class="btn" data-price-id="price_3">Оформить</a></article><article class="cd pc fi"><div class="ph"><h3>Годовой абонемент</h3><div class="pp">69 000 ₽</div></div><ul class="pf"><li>Экономия 20%</li><li>Персональные консультации</li><li>Подарочный набор</li></ul><a href="#" class="btn" data-price-id="price_4">Оформить</a></article></div></div></section>
+<section class="cs" id="contact"><div class="wrap"><h2 class="st fi">Контакты</h2><div class="cg fi"><div class="cd2"><h3>Адрес</h3><p>Москва, ул. Примерная, д. 123</p><h3>Телефон</h3><a href="tel:+79991234567">+7 (999) 123-45-67</a><h3>Email</h3><a href="mailto:info@harmony-yoga.ru">info@harmony-yoga.ru</a><h3>Часы работы</h3><p>Пн–Пт: 7:00 – 21:00</p><p>Сб–Вс: 8:00 – 19:00</p></div><form class="cf" id="cf"><h2 class="ft">Остались вопросы?</h2><div class="fs" id="fs"></div><div class="fg"><label>Имя</label><input type="text" id="nm" placeholder="Ваше имя" required></div><div class="fg"><label>Телефон</label><input type="tel" id="ph" placeholder="+7 (999) 123-45-67" required></div><div class="fg"><label>Сообщение</label><textarea id="ms" rows="4" placeholder="Расскажите о ваших целях..."></textarea></div><button type="submit" class="btn">Отправить</button></form></div></div></section>
+<section id="blog" class="wrap"><h2 class="st fi">Блог</h2><p class="ss fi">Статьи о практике и вдохновении</p><div class="gr"><article class="cd bc fi" data-article="1"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/180180e41-e72b-49a6-a130-970a2154b331.png" alt="Хатха-йога" loading="lazy"><div class="bco"><h3>Польза хатха-йоги для начинающих</h3><p>С чего начать и как избежать травм.</p></div></article><article class="cd bc fi" data-article="2"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/16e3367cc-91e4-47c4-ba86-4d9a50217714.png" alt="Медитация" loading="lazy"><div class="bco"><h3>Как медитация меняет мозг</h3><p>Научные исследования и личный опыт.</p></div></article><article class="cd bc fi" data-article="3"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/14c1c4e16-d868-4988-a860-9e9024a31e1f.png" alt="Инь-йога" loading="lazy"><div class="bco"><h3>Инь-йога перед сном</h3><p>Простые позы для глубокого отдыха.</p></div></article><article class="cd bc fi" data-article="4"><img src="https://image.qwenlm.ai/public_source/2c28601d-66bf-4eff-a367-42f94eabf125/1da96b7cd-c12f-4e16-adc2-ea69536322dc.png" alt="Пранаяма" loading="lazy"><div class="bco"><h3>Пранаяма: дыхание как основа практики</h3><p>Три техники для начинающих.</p></div></article></div></section>
+</main>
+<footer><p>&copy; 2026 Harmony Yoga Studio. Все права защищены.</p></footer>
+<button class="stt" id="stt" aria-label="Наверх">↑</button>
+<div class="modal" id="modal"><div class="mc"><button class="mx" id="mx" aria-label="Закрыть">&times;</button><h2 id="mT"></h2><div class="mb2" id="mB"></div></div></div>
+<script>
+const articles={
+1:{title:'Польза хатха-йоги для начинающих',body:'<p>Хатха-йога — идеальная отправная точка для новичков. В отличие от динамичных стилей, хатха делает акцент на статичных позах и осознанном дыхании.</p><h3>С чего начать?</h3><p>Первое занятие может показаться сложным, но помните: йога — не соревнование. Слушайте своё тело.</p><ul><li>Начните с 2-3 занятий в неделю по 45-60 минут</li><li>Используйте props (блоки, ремни) для поддержки</li><li>Фокусируйтесь на дыхании, а не на идеальной форме</li><li>Сообщите инструктору о травмах</li></ul><h3>Как избежать травм</h3><p>Никогда не работайте через боль. Лёгкий дискомфорт допустим, острая боль в суставах — сигнал остановиться.</p><p>Регулярная практика улучшает гибкость, укрепляет мышцы, снижает стресс. Первые результаты заметны через 2-3 недели.</p>'},
+2:{title:'Как медитация меняет мозг',body:'<p>За последние два десятилетия нейробиологи показали, как медитация влияет на мозг. МРТ-исследования фиксируют изменения уже после 8 недель практики.</p><h3>Что происходит в мозге?</h3><p>Медитация увеличивает плотность серого вещества в гиппокампе (память, обучение) и уменьшает миндалевидное тело (стресс, тревога).</p><ul><li>Утолщение префронтальной коры — концентрация и решения</li><li>Укрепление связей между полушариями — креативность</li><li>Снижение активности дефолт-системы — меньше "блуждания" мыслей</li></ul><h3>Личный опыт</h3><p>Я начал медитировать 5 лет назад по 10 минут в день. Через месяц стал спокойнее реагировать на стресс. Через полгода улучшился сон.</p><p>Начните с 5 минут. Сядьте удобно, закройте глаза, наблюдайте за дыханием. Когда ум отвлечётся — мягко верните внимание.</p>'},
+3:{title:'Инь-йога перед сном',body:'<p>Инь-йога — медитативная практика с удержанием поз 3-5 минут. Идеальна для вечера, помогает подготовиться ко сну.</p><h3>Почему работает?</h3><p>В отличие от активных стилей, инь воздействует на глубокие соединительные ткани — фасции, связки. Активирует парасимпатическую систему (расслабление).</p><h3>Три позы для отдыха</h3><p><strong>1. Поза ребёнка (Баласана)</strong> — сядьте на пятки, наклонитесь вперёд, руки вперёд или вдоль тела. 3-5 минут. Снимает напряжение спины.</p><p><strong>2. Поза бабочки (Баддха Конасана)</strong> — сядьте, соедините стопы, колени в стороны. Подушка под колени при необходимости. 3-5 минут.</p><p><strong>3. Поддерживаемый мост</strong> — лягте на спину, болстер под крестец. Руки вдоль тела. 3-5 минут. Снимает усталость с ног.</p><p>Практикуйте за 30-60 минут до сна в тихой комнате с приглушённым светом.</p>'},
+4:{title:'Пранаяма: дыхание как основа практики',body:'<p>Пранаяма — искусство управления дыханием. В йоге считается, что дыхание — мост между телом и умом. Освоив пранаяму, вы углубите любую практику.</p><h3>Почему дыхание так важно?</h3><p>Мы дышим около 20 000 раз в день, чаще всего неосознанно. Пранаяма превращает автоматический процесс в инструмент для регуляции нервной системы, энергии и концентрации.</p><h3>Три техники для начинающих</h3><p><strong>1. Дыхание 4-7-8</strong> — вдох через нос на 4 счёта, задержка на 7, выдох через рот на 8. Повторите 4 цикла. Отлично снимает тревогу перед сном.</p><p><strong>2. Нади Шодхана (попеременное дыхание)</strong> — закройте правую ноздрю, вдох через левую. Закройте левую, выдох через правую. Вдох через правую, выдох через левую. 5-10 циклов. Балансирует полушария мозга.</p><p><strong>3. Уджайи (победное дыхание)</strong> — слегка сожмите голосовую щель, дышите носом со звуком, похожим на шум моря. Используется во время практики асан для поддержания ритма и тепла в теле.</p><h3>Меры предосторожности</h3><p>Никогда не форсируйте дыхание. Если чувствуете головокружение — вернитесь к обычному дыханию. Беременным и людям с гипертонией следует проконсультироваться с врачом перед практикой задержек дыхания.</p><p>Начните с 5 минут в день перед основной практикой йоги. Через 2-3 недели вы заметите улучшение концентрации и более глубокое погружение в асаны.</p>'}
+};
+const staticContent={advantages:[{title:'Опытные инструкторы',body:'<p>Наши преподаватели имеют международные сертификаты (RYT 500, Yoga Alliance) и многолетний опыт работы.</p><p>Каждый инструктор проходит строгий отбор и регулярно повышает квалификацию на международных семинарах.</p><p>Мы гордимся нашей командой — они не просто учат асанам, а помогают найти свой путь в йоге.</p>'},{title:'Малые группы',body:'<p>В наших группах не более 10 человек. Это позволяет уделить внимание каждому ученику.</p><p>Вы получаете обратную связь от инструктора, корректировку поз и индивидуальный подход.</p><p>Малые группы — это безопасность и эффективность каждой практики.</p>'},{title:'Уютная атмосфера',body:'<p>Наша студия — это пространство гармонии. Светлые залы с панорамными окнами, натуральные материалы (бамбук, дерево, лён).</p><p>Мы использует профессиональное оборудование: Manduka коврики, болстеры, ремни и блоки.</p><p>После практики вас ждёт травяной чай в лаунж-зоне с видом на город.</p>'},{title:'Все уровни',body:'<p>У нас есть программы для любого уровня подготовки — от нулевого до продвинутого.</p><p>Новички начинают с базовых асан и дыхательных техник. Опытные практикующие углубляют свою практику.</p><p>Мы помогаем расти постепенно, без травм и стресса.</p>'}],instructors:{
+ anna:{name:'Анна Соколова',specialty:'Хатха-йога, RYT 500',bio:'<p>Анна практикует йогу более 15 лет. Сертифицированный преподаватель с международным опытом. Специализируется на хатха-йоге и работе с начинающими.</p><p>Проводит ретриты и мастер-классы по всей России. Верит, что йога — это путь к себе, а не соревнование.</p><p><strong>Опыт:</strong> 15 лет практики, 10 лет преподавания</p><p><strong>Образование:</strong> RYT 500, курсы анатомии йоги, пренатальная йога</p>'},
+ mikhail:{name:'Михаил Руднев',specialty:'Виньяса-флоу, RYT 200',bio:'<p>Михаил — динамичный инструктор с фокусом на силовые практики. Ведёт виньяса-флоу и аштанга-йогу.</p><p>Помогает ученикам развивать силу, гибкость и выносливость через осознанное движение.</p><p><strong>Опыт:</strong> 8 лет практики, 6 лет преподавания</p><p><strong>Образование:</strong> RYT 200, курсы по биомеханике движения</p>'},
+ elena:{name:'Елена Корнеева',specialty:'Инь-йога, Yoga Alliance',bio:'<p>Елена специализируется на мягких, медитативных практиках. Инь-йога и восстановительная йога — её сильные стороны.</p><p>Помогает снять стресс, улучшить сон и найти внутренний баланс.</p><p><strong>Опыт:</strong> 12 лет практики, 7 лет преподавания</p><p><strong>Образование:</strong> Yoga Alliance, курсы по фасциальной йоге</p>'},
+ dmitry:{name:'Дмитрий Белов',specialty:'Медитация, mindfulness',bio:'<p>Дмитрий — преподаватель медитации и осознанности. Ведёт утренние практики и курсы по mindfulness.</p><p>Помогает найти внутреннюю гармонию и ясность ума через дыхательные техники и медитацию.</p><p><strong>Опыт:</strong> 10 лет практики, 5 лет преподавания</p><p><strong>Образование:</strong> MBSR-инструктор, курсы по нейронауке медитации</p>'}
+}};
+document.addEventListener('DOMContentLoaded',()=>{
+const nb=document.getElementById('navbar'),mb=document.getElementById('mb'),nl=document.getElementById('nl');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>50));
+mb.addEventListener('click',e=>{e.stopPropagation();const a=nl.classList.toggle('a');mb.classList.toggle('active');mb.setAttribute('aria-expanded',a.toString())});
+document.querySelectorAll('.nl a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('a');mb.classList.remove('active');mb.setAttribute('aria-expanded','false')}));
+document.addEventListener('click',e=>{if(nl.classList.contains('a')&&!nl.contains(e.target)&&!mb.contains(e.target)){nl.classList.remove('a');mb.classList.remove('active');mb.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nl.classList.contains('a')){nl.classList.remove('a');mb.classList.remove('active');mb.setAttribute('aria-expanded','false');mb.focus()}});
+const secs=document.querySelectorAll('section[id]'),navs=document.querySelectorAll('.nl a');
+const upd=()=>{const s=scrollY+150;secs.forEach(x=>{const t=x.offsetTop,h=x.offsetHeight,i=x.id;if(s>=t&&s<t+h)navs.forEach(a=>{a.classList.remove('on');if(a.getAttribute('href')==='#'+i)a.classList.add('on')})})};
+addEventListener('scroll',upd);upd();
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fi').forEach(x=>obs.observe(x));
+const stt=document.getElementById('stt');
+addEventListener('scroll',()=>stt.classList.toggle('v',scrollY>500));
+stt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const md=document.getElementById('modal'),mT=document.getElementById('mT'),mB=document.getElementById('mB'),mx=document.getElementById('mx');
+const openModal=(title,body)=>{mT.textContent=title;mB.innerHTML=body;md.classList.add('open');document.body.style.overflow='hidden'};
+const closeModal=()=>{md.classList.remove('open');document.body.style.overflow=''};
+mx.addEventListener('click',closeModal);
+md.addEventListener('click',e=>{if(e.target===md)closeModal()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&md.classList.contains('open'))closeModal()});
+document.querySelectorAll('[data-article]').forEach(c=>c.addEventListener('click',()=>{const a=articles[c.getAttribute('data-article')];if(a)openModal(a.title,a.body)}));
+document.querySelectorAll('[data-instructor]').forEach(c=>c.addEventListener('click',()=>{const i=staticContent.instructors[c.getAttribute('data-instructor')];if(i)openModal(i.name,'<p style="color:var(--warm);font-size:1.2rem;margin-bottom:1.5rem">'+i.specialty+'</p>'+i.bio)}));
+document.querySelectorAll('[data-advantage]').forEach(c=>c.addEventListener('click',()=>{const a=staticContent.advantages[+c.getAttribute('data-advantage')-1];if(a)openModal(a.title,a.body)}));
+const f=document.getElementById('cf');
+f.addEventListener('submit',async e=>{e.preventDefault();f.querySelectorAll('.em').forEach(x=>{x.textContent='';x.classList.remove('v')});f.querySelectorAll('.error').forEach(x=>x.classList.remove('error'));const nm=document.getElementById('nm').value.trim(),ph=document.getElementById('ph').value.trim();let err=false;if(!nm||nm.length<2){sfe(document.getElementById('nm'),'Введите имя (мин. 2 символа)');err=true}if(!ph||ph.replace(/\D/g,'').length<10){sfe(document.getElementById('ph'),'Введите корректный телефон');err=true}if(err)return;const b=f.querySelector('.btn'),o=b.textContent;b.textContent='Отправка...';b.disabled=true;try{const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:nm,phone:ph,message:document.getElementById('ms').value.trim()})});const data=await res.json();if(!res.ok)throw new Error(data.errors?data.errors.map(e=>e.msg).join(', '):(data.error||'Ошибка'));const fs=document.getElementById('fs');fs.textContent='✓ Спасибо! Мы свяжемся с вами.';fs.style.background='rgba(129,199,132,.15)';fs.style.color='var(--ok)';fs.classList.add('v');f.reset();setTimeout(()=>fs.classList.remove('v'),5000)}catch(e){const fs=document.getElementById('fs');fs.textContent='❌ '+e.message;fs.style.background='rgba(229,115,115,.15)';fs.style.color='var(--err)';fs.classList.add('v')}finally{b.textContent=o;b.disabled=false}});
+function sfe(fd,m){fd.classList.add('error');const e=fd.parentElement.querySelector('.em');if(e){e.textContent=m;e.classList.add('v')}}
+const pi=document.getElementById('ph');
+pi.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'');if(v.length>0){if(v[0]==='7'||v[0]==='8')v=v.substring(1);let f='+7';if(v.length>0)f+=' ('+v.substring(0,3);if(v.length>=3)f+=') '+v.substring(3,6);if(v.length>=6)f+='-'+v.substring(6,8);if(v.length>=8)f+='-'+v.substring(8,10);e.target.value=f}});
+});
+</script>
+</body>
+</html>
