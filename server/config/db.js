@@ -5,8 +5,8 @@ const connectDB = async () => {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('✅ MongoDB подключен');
   } catch (err) {
-    console.error('❌ Ошибка MongoDB:', err.message);
-    process.exit(1);
+    console.warn('⚠️ MongoDB не подключена:', err.message);
+    console.warn('   API будет недоступен. Настройте MONGO_URI в .env');
   }
 };
 
